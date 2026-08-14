@@ -91,7 +91,17 @@ for (const [id, max] of [["short-description", 80], ["full-description", 4000]])
 
 includes("support/index.html", "Paper Boom! Support");
 includes("support/index.html", "https://github.com/VelvetRogue5/paperboom/issues");
-includes("support/index.html", "contact@flowgames.net");
+const supportEmail = "velvet_rogue_5@proton.me";
+for (const relativePath of [
+  "privacy.html",
+  "terms-of-use.html",
+  "android/privacy.html",
+  "android/terms-of-use.html",
+  "support/index.html",
+]) {
+  includes(relativePath, supportEmail);
+  includes(relativePath, `mailto:${supportEmail}`);
+}
 includes("support/index.html", "../android/marketing.html");
 
 includes("README.md", "https://velvetrogue5.github.io/paperboom/android/privacy.html");
@@ -109,8 +119,12 @@ for (const name of ["01_loading.png", "02_home.png", "03_shot.png", "04_rockets.
   assert.ok(statSync(path).size > 100_000, `${name} should be a real screenshot`);
 }
 
-for (const relativePath of [...pagePaths, "README.md"]) {
+const forbiddenBrand = ["flow", "games"].join("");
+const forbiddenEmail = ["contact", "@", forbiddenBrand, ".net"].join("");
+for (const relativePath of [...pagePaths, "README.md", "assets/styles.css"]) {
   assert.ok(!read(relativePath).includes("Sandpals"), `${relativePath} should not mention Sandpals`);
+  assert.ok(!read(relativePath).toLowerCase().includes(forbiddenBrand), `${relativePath} should not mention a competitor brand`);
+  assert.ok(!read(relativePath).toLowerCase().includes(forbiddenEmail), `${relativePath} should not contain a competitor email`);
 }
 
 console.log("Paper Boom site validation passed.");
