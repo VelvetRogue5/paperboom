@@ -29,14 +29,29 @@ In repository settings, enable GitHub Pages using `Deploy from a branch`, branch
 
 ## Current privacy posture
 
-The pages reflect the app configuration reviewed on August 14, 2026: no account requirement, local game saves,
-no in-app advertising, no analytics or attribution SDKs, no cross-app tracking, no active store-purchase integration,
-Android haptic vibration, and user-initiated email support. Purchase disclosures are written conditionally for future releases.
+The pages reflect the app configuration reviewed on August 26, 2026: no account requirement, local game saves,
+Android haptic vibration, user-initiated email support, and no active store-purchase integration, plus the data
+services the app now ships with:
+
+- **Advertising** — AppLovin MAX rewarded and interstitial ads (banner present but disabled by default), mediating
+  AppLovin, Unity Ads, Vungle (Liftoff), Mintegral, Pangle (ByteDance), BidMachine, and Bigo Ads. iOS ad units are
+  not live yet, but the SDKs ship in the build and both platform pages are written as ad-supported.
+- **Analytics and crash reporting** — Firebase Analytics and Crashlytics, keyed to an app-generated device
+  identifier (keychain-backed on iOS, app storage on Android). Not the IDFA; no ATT prompt in this build.
+- **Remote configuration and A/B tests** — Firebase Remote Config.
+- **Install measurement** — install, app-open, tutorial, ad-impression, and cumulative ad-revenue reports to
+  `app-d.paperboom.com.ai`, queued on device and retried for up to seven days.
+
+Purchase disclosures are still written conditionally for future releases.
 
 Public support and privacy email: `velvet_rogue_5@proton.me`.
 
-Update the policies and store declarations before release if the app adds cloud saves, accounts, analytics, crash
-reporting, advertising, attribution, remote configuration, active migration uploads, or other data collection.
+Two declarations are deliberately left to a human before submission and are flagged on the marketing pages:
+whether App Store review requires an App Tracking Transparency prompt now that ad networks receive a device
+identifier, and the Google Play Data safety answers for the Advertising ID.
+
+Update the policies and store declarations before release if the app adds cloud saves, accounts, in-app purchases,
+an ATT prompt, active migration uploads, or other data collection.
 
 ## Local validation
 

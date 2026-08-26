@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="index,follow">
-  <meta name="description" content="Privacy Policy for Paper Boom! on iOS, including on-device game saves, optional support email, and Apple in-app purchase disclosures.">
+  <meta name="description" content="Privacy Policy for Paper Boom! on iOS, covering on-device game saves, in-app advertising, analytics and crash reporting, install measurement, and Apple in-app purchase disclosures.">
   <meta name="theme-color" content="#123f3a">
   <title>Privacy Policy (iOS) | Paper Boom!</title>
   <link rel="icon" href="assets/app-icon.png">
@@ -32,11 +32,12 @@
         <p class="eyebrow">Privacy Policy · iOS</p>
         <h1>Paper Boom! for iOS</h1>
         <p class="lead">
-          This policy explains how Paper Boom! handles information when you play. The current version does not
-          require an account, does not show ads, and does not use analytics, attribution, or tracking services.
-          Game progress and preferences are stored on your device.
+          This policy explains how Paper Boom! handles information when you play. You still do not need an account,
+          and your game progress is saved on your device. The app now also shows ads, reports gameplay and
+          performance data to analytics and crash-reporting services, and measures installs so we can understand
+          how the game is found and how it performs.
         </p>
-        <p class="updated">Last updated: August 14, 2026</p>
+        <p class="updated">Last updated: August 26, 2026</p>
         <div class="platform-switcher" aria-label="Choose a platform privacy policy">
           <span>Platform</span>
           <a href="privacy.html" aria-current="page">iOS</a>
@@ -52,8 +53,8 @@
       <aside class="hero-badge" aria-label="Privacy summary">
         <img src="assets/app-icon.png" alt="Paper Boom app icon" width="136" height="136">
         <div>
-          <strong>Simple by design</strong>
-          <span>No account. No in-app advertising. No cross-app tracking.</span>
+          <strong>No account needed</strong>
+          <span>Play without signing up. Ads and measurement use a device identifier, not your identity.</span>
         </div>
       </aside>
     </section>
@@ -71,8 +72,8 @@
       </article>
       <article>
         <span class="card-number" aria-hidden="true">03</span>
-        <h2>No Ads or Tracking</h2>
-        <p>The current version does not include advertising, analytics, attribution, or cross-app tracking SDKs.</p>
+        <h2>Ads and Measurement</h2>
+        <p>The app includes advertising, analytics, crash reporting, remote configuration, and install measurement, described in detail below.</p>
       </article>
     </section>
 
@@ -90,23 +91,157 @@
           local saves consistent.
         </p>
         <p>
-          The app also creates a random support identifier and stores it on your device. It is not based on your
-          identity or advertising identifier. If you tap the in-game support button, this identifier is placed in the
-          subject of a draft email so we can distinguish support requests. It leaves your device only if you choose
-          to send that email.
+          The app generates a random device identifier the first time it runs and stores it on your device, including
+          in the iOS keychain so it can survive a reinstall. It is not derived from your identity, your Apple Account,
+          or the Identifier for Advertisers (IDFA). This identifier is sent with the analytics, crash-reporting,
+          advertising, and measurement data described below so that events from the same installation can be counted
+          together. Deleting the app does not always remove the keychain copy; see
+          <a href="#choices">Your Choices</a>.
+        </p>
+        <p>
+          The app also creates a separate random support identifier and stores it on your device. If you tap the
+          in-game support button, this identifier is placed in the subject of a draft email so we can distinguish
+          support requests. It leaves your device only if you choose to send that email.
+        </p>
+        <p>
+          Along with the identifiers above, the services described below receive technical information about your
+          device and the app: device model and manufacturer, operating system version, screen size, app version and
+          build, language and region settings, time zone, store channel, network connection status, and the IP address
+          your device uses to reach the internet.
         </p>
       </article>
 
       <article class="policy-section">
-        <h2>Analytics, Advertising, and Tracking</h2>
+        <h2>Analytics and Crash Reporting</h2>
         <p>
-          The current version of Paper Boom! does not use third-party analytics, crash-reporting, advertising,
-          attribution, or remote-configuration services. It does not show banner, interstitial, or rewarded ads.
+          Paper Boom! uses Google Firebase Analytics and Firebase Crashlytics. Analytics records gameplay and app
+          lifecycle events so we can see how the game is actually played and where players get stuck. Crashlytics
+          records crashes and unhandled errors so we can fix them.
+        </p>
+        <p>The events we send describe gameplay, not you personally. They cover:</p>
+        <ul class="policy-list">
+          <li>App and session activity: app opens, session start and end, session length, screens viewed.</li>
+          <li>Level activity: level start, level end and result, retries, continues, and tutorial progress.</li>
+          <li>In-game economy: coins earned and spent, lives consumed, streaks, gift boxes, and booster usage.</li>
+          <li>Shop and purchase activity: shop opens, product taps, and purchase results.</li>
+          <li>Settings activity: settings opened, closed, and toggled.</li>
+          <li>Ad activity: ad requests, loads, impressions, failures, closes, and rewarded-ad completions.</li>
+          <li>Experiment activity: which configuration or A/B group your installation received.</li>
+          <li>Delivery diagnostics: whether our own events and reports reached our servers, and how late they were.</li>
+        </ul>
+        <p>
+          We also set a small number of properties about the installation, such as current level, last completed
+          level, last session length, level pack version, a coarse coin-balance range, and the build channel and
+          build number. Crash reports include the device identifier, device and OS details, app version, and a
+          technical stack trace.
         </p>
         <p>
-          Paper Boom! does not request Apple's App Tracking Transparency permission, does not access the Identifier
-          for Advertisers (IDFA), and does not track you across apps or websites owned by other companies.
+          Google processes this data as our service provider under the
+          <a href="https://firebase.google.com/support/privacy" rel="noopener noreferrer">Firebase privacy documentation</a>
+          and the <a href="https://policies.google.com/privacy" rel="noopener noreferrer">Google Privacy Policy</a>.
         </p>
+      </article>
+
+      <article class="policy-section">
+        <h2>Advertising</h2>
+        <p>
+          Paper Boom! includes in-app advertising and is monetized primarily through ads. The app can show rewarded
+          video ads that you choose to watch in exchange for an in-game reward, and interstitial ads that appear
+          between levels. A banner format also exists in the app and is disabled by default; if we enable it, ads may
+          also appear at the bottom of the gameplay screen. Ad placement, frequency, and cooldowns are controlled by
+          remote configuration and can change without an app update.
+        </p>
+        <p>
+          Ads are delivered through AppLovin MAX, which mediates demand from several advertising networks. The
+          networks currently integrated in the app are AppLovin, Unity Ads, Vungle (Liftoff), Mintegral, Pangle
+          (ByteDance), BidMachine, and Bigo Ads. Depending on your platform and version, some of these networks may
+          not be enabled and some ad placements may not be serving yet, but the software components ship with the app.
+        </p>
+        <p>
+          To select, deliver, and measure ads, these providers process device and usage information, which typically
+          includes the device identifier described above, IP address and the coarse location derived from it, device
+          model and operating system, network and locale information, and your interactions with the ads shown (such
+          as views, clicks, and completions). We do not send them your game saves or your support email. AppLovin
+          also reports estimated ad revenue for each impression back to the app, which we use for the measurement
+          described in the next section.
+        </p>
+        <p>
+          Each advertising network handles the data it receives as an independent controller under its own privacy
+          policy, including
+          <a href="https://www.applovin.com/privacy/" rel="noopener noreferrer">AppLovin</a> and
+          <a href="https://unity.com/legal/game-player-and-app-user-privacy-policy" rel="noopener noreferrer">Unity</a>.
+          AppLovin publishes the current list of its mediation and demand partners on its privacy page.
+        </p>
+      </article>
+
+      <article class="policy-section">
+        <h2>Install Measurement and Attribution</h2>
+        <p>
+          Paper Boom! reports installation and gameplay milestones to our own measurement endpoint at
+          <span>app-d.paperboom.com.ai</span>, operated for us so that we can count installs, understand which
+          marketing channel a player came from, and measure how much advertising revenue an installation generates
+          in aggregate.
+        </p>
+        <p>
+          On first launch the app sends an install report containing the device identifier, app id, platform, app
+          version and build, store channel and region, device model and manufacturer, operating system version,
+          screen size, language, country, and time zone. After that, selected events — app opens, tutorial
+          completion, ad impressions, and cumulative ad revenue — are sent with the same identifiers.
+        </p>
+        <p>
+          These reports are queued on your device when the network is unavailable and retried later, so a report may
+          be delivered hours or days after the event happened. Queued reports are stored on your device until they
+          are delivered or expire.
+        </p>
+      </article>
+
+      <article class="policy-section">
+        <h2>Remote Configuration and Experiments</h2>
+        <p>
+          The app uses Firebase Remote Config to fetch settings such as ad frequency, level pacing, and shop
+          availability, and to run A/B tests. Fetching configuration sends the device identifier and basic app and
+          device information to Google, and your installation may be assigned to a test group. The group you are in
+          is recorded as an analytics event so results can be compared. If configuration cannot be fetched, the app
+          falls back to the values built into the release.
+        </p>
+      </article>
+
+      <article class="policy-section">
+        <h2>App Tracking Transparency and the IDFA</h2>
+        <p>
+          The current version of Paper Boom! does not present Apple's App Tracking Transparency prompt and does not
+          access the Identifier for Advertisers (IDFA). Advertising and measurement in this version rely on the
+          app-generated device identifier described above rather than on Apple's advertising identifier.
+        </p>
+        <p>
+          If a future version requests permission to track, iOS will show you Apple's prompt first, your answer will
+          be respected, and this policy will be updated before that version is released.
+        </p>
+      </article>
+
+      <article id="choices" class="policy-section">
+        <h2>Your Choices</h2>
+        <ul class="policy-list">
+          <li>
+            <strong>Rewarded ads are optional.</strong> You choose whether to watch one. Interstitial ads are shown
+            automatically between levels and cannot currently be turned off in the game.
+          </li>
+          <li>
+            <strong>Tracking permission.</strong> In iOS Settings you can turn off "Allow Apps to Request to Track",
+            which blocks the App Tracking Transparency prompt for all apps, and turn off Personalized Ads for Apple's
+            own advertising.
+          </li>
+          <li>
+            <strong>Deleting the app.</strong> Deleting Paper Boom! removes your local game saves. The device
+            identifier may remain in the iOS keychain and be reused if you reinstall; erasing all content and
+            settings on the device, or contacting us with the identifier, will clear it.
+          </li>
+          <li>
+            <strong>Requests about your data.</strong> Email us to ask about, or request deletion of, data associated
+            with your device identifier. It helps if you include the support identifier from the in-game support
+            email so we can find the right records.
+          </li>
+        </ul>
       </article>
 
       <article class="policy-section">
@@ -120,7 +255,8 @@
         <p>
           Apple handles its purchase and account data under the
           <a href="https://www.apple.com/legal/privacy/" rel="noopener noreferrer">Apple Privacy Policy</a>.
-          Purchase-related in-game inventory may be stored locally on your device as part of your game save.
+          Purchase-related in-game inventory may be stored locally on your device as part of your game save, and shop
+          and purchase events are recorded in analytics as described above.
         </p>
       </article>
 
@@ -132,8 +268,9 @@
           Your email provider processes the message under its own privacy terms.
         </p>
         <p>
-          The app may also open legal pages in your web browser. Once you leave the app, the privacy practices of the
-          destination website and your browser apply.
+          The app may also open legal pages in your web browser, and tapping an ad will open a destination chosen by
+          the advertiser. Once you leave the app, the privacy practices of the destination website and your browser
+          apply.
         </p>
       </article>
 
@@ -145,6 +282,12 @@
           purchased in-game content after a valid purchase.
         </p>
         <p>
+          Analytics, crash, advertising, configuration, and measurement data are used to operate and improve the
+          game: to fix crashes and bugs, understand which levels are too hard or too easy, balance the in-game
+          economy, deliver and cap ads, measure ad performance and revenue, run A/B tests, count installs and
+          attribute them to a marketing channel, and detect invalid or fraudulent activity.
+        </p>
+        <p>
           Information you voluntarily send in a support email is used to answer your request, troubleshoot the issue,
           and protect the game and its players from abuse.
         </p>
@@ -153,10 +296,17 @@
       <article class="policy-section">
         <h2>Sharing and Sale of Information</h2>
         <p>
-          We do not sell or rent player personal information. The app does not automatically send gameplay data to
-          advertising or analytics providers. Information is shared only when needed to process an optional App Store
-          future App Store purchase, when you choose to contact support, when required by law, or when necessary to protect rights,
-          safety, and security.
+          We do not sell or rent player personal information, and we do not share your game saves or support
+          correspondence with advertisers. Data is shared only as described in this policy: with Google for
+          analytics, crash reporting, and remote configuration; with AppLovin and the mediated advertising networks
+          to deliver and measure ads; with our measurement endpoint to count installs and revenue; with Apple to
+          process any future App Store purchase; when you choose to contact support; when required by law; or when
+          necessary to protect rights, safety, and security.
+        </p>
+        <p>
+          Some privacy laws treat sharing device identifiers with advertising networks for personalized advertising
+          as a "sale" or "share" of personal information. If you would like us to stop that sharing for your device,
+          contact us at the address below with your device identifier.
         </p>
       </article>
 
@@ -165,7 +315,13 @@
         <p>
           Local game data remains on your device until the app overwrites it during normal gameplay or you delete the
           app and iOS removes its local data. Paper Boom! currently does not provide cloud save, so deleting the app
-          may permanently remove local progress.
+          may permanently remove local progress. Queued measurement reports are held on your device for up to seven
+          days and are discarded if they cannot be delivered.
+        </p>
+        <p>
+          Analytics, crash, and measurement data are retained by us and our providers only as long as needed for the
+          purposes above, according to each provider's retention settings and applicable law, and are then deleted or
+          aggregated so that they no longer identify a single installation.
         </p>
         <p>
           Support emails are retained only as reasonably necessary to respond, keep support records, resolve disputes,
@@ -177,7 +333,8 @@
       <article class="policy-section">
         <h2>Security</h2>
         <p>
-          We use reasonable safeguards appropriate to the limited information handled by the app. No storage or
+          We use reasonable safeguards appropriate to the information handled by the app. Reports to our measurement
+          endpoint are signed and sent over the network in the format that endpoint requires. No storage or
           transmission method can be guaranteed to be completely secure, so please avoid including sensitive personal
           information in a support message unless it is necessary to resolve your request.
         </p>
@@ -186,10 +343,12 @@
       <article class="policy-section">
         <h2>Children's Privacy</h2>
         <p>
-          Paper Boom! is a general-audience puzzle game and is not designed to collect personal information from
-          children. The current version has no account creation, social features, behavioral advertising, or gameplay
-          analytics. If you believe a child has sent personal information to us through support, contact us so we can
-          review and delete it where appropriate.
+          Paper Boom! is a general-audience puzzle game. It is not directed to children, and we do not knowingly
+          collect personal information from children. The game has no account creation and no social features, but it
+          does include advertising, gameplay analytics, and install measurement as described above, so it is not
+          intended for use by children under the age at which consent is required in your country. If you believe a
+          child has used the app or sent personal information to us through support, contact us so we can review and
+          delete it where appropriate.
         </p>
       </article>
 
@@ -198,8 +357,8 @@
         <p>
           We may update this policy when Paper Boom! changes or when legal requirements change. The latest version
           will be posted on this page, and the "Last updated" date will be revised. If a future release adds cloud
-          saves, analytics, advertising, or another data service, this policy will be updated before that feature is
-          released.
+          saves, in-app purchases, App Tracking Transparency, or another data service, this policy will be updated
+          before that feature is released.
         </p>
       </article>
 

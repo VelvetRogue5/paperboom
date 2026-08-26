@@ -47,8 +47,11 @@ includes("index.html", "android/privacy.html");
 includes("index.html", "support/");
 
 includes("privacy.html", "Privacy Policy (iOS) | Paper Boom!");
-includes("privacy.html", "No Ads or Tracking");
+includes("privacy.html", "Ads and Measurement");
 includes("privacy.html", "Apple's App Tracking Transparency");
+includes("privacy.html", "AppLovin MAX");
+includes("privacy.html", "Firebase Crashlytics");
+includes("privacy.html", "app-d.paperboom.com.ai");
 includes("privacy.html", "android/privacy.html");
 includes("privacy.html", "terms-of-use.html");
 
@@ -57,7 +60,8 @@ includes("terms-of-use.html", "Apple Media Services Terms and Conditions");
 includes("terms-of-use.html", "In-App Purchases");
 
 includes("marketing.html", "App Store Connect");
-includes("marketing.html", "Contains ads:</strong> No");
+includes("marketing.html", "Contains ads:</strong> Yes");
+includes("marketing.html", "App Privacy Label Draft");
 includes("marketing.html", "In-app purchases:</strong> No active purchase processing");
 
 const iosMarketing = read("marketing.html");
@@ -70,6 +74,10 @@ for (const [id, max] of [["subtitle", 30], ["promotional-text", 170], ["keywords
 includes("android/privacy.html", "Privacy Policy (Android) | Paper Boom!");
 includes("android/privacy.html", "Android Permissions and Haptics");
 includes("android/privacy.html", "Android Advertising ID");
+includes("android/privacy.html", "Ads and Measurement");
+includes("android/privacy.html", "AppLovin MAX");
+includes("android/privacy.html", "Firebase Crashlytics");
+includes("android/privacy.html", "app-d.paperboom.com.ai");
 includes("android/privacy.html", "../privacy.html");
 includes("android/privacy.html", "terms-of-use.html");
 
@@ -79,7 +87,7 @@ includes("android/terms-of-use.html", "In-App Purchases");
 
 includes("android/marketing.html", "Google Play Console");
 includes("android/marketing.html", "Data Safety Draft");
-includes("android/marketing.html", "Contains ads:</strong> No");
+includes("android/marketing.html", "Contains ads:</strong> Yes");
 includes("android/marketing.html", "In-app purchases:</strong> No active purchase processing");
 
 const androidMarketing = read("android/marketing.html");
@@ -117,6 +125,24 @@ for (const name of ["01_loading.png", "02_home.png", "03_shot.png", "04_rockets.
   const path = join(root, "assets/screenshots", name);
   assert.ok(existsSync(path), `${name} should exist`);
   assert.ok(statSync(path).size > 100_000, `${name} should be a real screenshot`);
+}
+
+// The app ships ads, analytics and attribution SDKs. These phrases were true
+// before that and are the ones most likely to be copied back in by accident.
+const staleNoDataClaims = [
+  "No in-app advertising",
+  "does not show ads",
+  "does not include advertising",
+  "does not include third-party advertising",
+  "does not use third-party analytics",
+  "attribution, or tracking SDKs",
+  "or gameplay analytics",
+];
+for (const relativePath of pagePaths) {
+  const html = read(relativePath);
+  for (const claim of staleNoDataClaims) {
+    assert.ok(!html.includes(claim), `${relativePath} should not still claim ${JSON.stringify(claim)}`);
+  }
 }
 
 const forbiddenBrand = ["flow", "games"].join("");
