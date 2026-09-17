@@ -83,6 +83,12 @@ includes("android/privacy.html", "Ads and Measurement");
 includes("android/privacy.html", "AppLovin MAX");
 includes("android/privacy.html", "Firebase Crashlytics");
 includes("android/privacy.html", "app-d.paperboom.com.ai");
+includes("android/privacy.html", "AppsFlyer");
+includes("android/privacy.html", "Meta (Facebook) App Events");
+includes("android/privacy.html", "purchase_result");
+includes("android/privacy.html", "Restore Purchases");
+includes("android/privacy.html", "<h2>Notifications</h2>");
+includes("privacy.html", "<h2>Notifications</h2>");
 includes("android/privacy.html", "../privacy.html");
 includes("android/privacy.html", "terms-of-use.html");
 
@@ -93,7 +99,7 @@ includes("android/terms-of-use.html", "In-App Purchases");
 includes("android/marketing.html", "Google Play Console");
 includes("android/marketing.html", "Data Safety Draft");
 includes("android/marketing.html", "Contains ads:</strong> Yes");
-includes("android/marketing.html", "In-app purchases:</strong> No active purchase processing");
+includes("android/marketing.html", "In-app purchases:</strong> Yes");
 
 const androidMarketing = read("android/marketing.html");
 for (const [id, max] of [["short-description", 80], ["full-description", 4000]]) {
@@ -150,7 +156,7 @@ for (const relativePath of pagePaths) {
   }
 }
 
-// The iOS build requests App Tracking Transparency and reads the IDFA after the
+// Checked on every page. The iOS build requests App Tracking Transparency and reads the IDFA after the
 // player allows it. App Review flagged the site when it still said otherwise.
 const staleNoTrackingClaims = [
   "does not present Apple's App Tracking Transparency prompt",
@@ -167,7 +173,7 @@ const staleNoTrackingClaims = [
   "no active IAP",
   "Future In-App Purchases",
 ];
-for (const relativePath of ["privacy.html", "terms-of-use.html", "marketing.html"]) {
+for (const relativePath of pagePaths) {
   const html = read(relativePath);
   for (const claim of staleNoTrackingClaims) {
     assert.ok(!html.includes(claim), `${relativePath} should not still claim ${JSON.stringify(claim)}`);
