@@ -29,29 +29,29 @@ In repository settings, enable GitHub Pages using `Deploy from a branch`, branch
 
 ## Current privacy posture
 
-The pages reflect the app configuration reviewed on August 26, 2026: no account requirement, local game saves,
-Android haptic vibration, user-initiated email support, and no active store-purchase integration, plus the data
-services the app now ships with:
+The iOS pages reflect the iOS build reviewed on September 17, 2026; the Android pages still reflect the review of
+August 26, 2026. Both platforms have no account requirement, local game saves, and user-initiated email support.
 
-- **Advertising** — AppLovin MAX rewarded and interstitial ads (banner present but disabled by default), mediating
-  AppLovin, Unity Ads, Vungle (Liftoff), Mintegral, Pangle (ByteDance), BidMachine, and Bigo Ads. iOS ad units are
-  not live yet, but the SDKs ship in the build and both platform pages are written as ad-supported.
+- **Advertising** — AppLovin MAX rewarded and interstitial ads (banner present but disabled by default). The iOS
+  build mediates AppLovin, Google AdMob, Unity Ads, Vungle (Liftoff), DT Exchange, Mintegral, Pangle (ByteDance),
+  BidMachine, and Bigo Ads.
 - **Analytics and crash reporting** — Firebase Analytics and Crashlytics, keyed to an app-generated device
-  identifier (keychain-backed on iOS, app storage on Android). Not the IDFA; no ATT prompt in this build.
+  identifier (keychain-backed on iOS, app storage on Android).
 - **Remote configuration and A/B tests** — Firebase Remote Config.
-- **Install measurement** — install, app-open, tutorial, ad-impression, and cumulative ad-revenue reports to
-  `app-d.paperboom.com.ai`, queued on device and retried for up to seven days.
+- **Install measurement** — AppsFlyer, Meta App Events, and install, app-open, tutorial, ad-impression, and
+  cumulative ad-revenue reports to `app-d.paperboom.com.ai`, queued on device and retried for up to seven days.
+- **Tracking (iOS)** — the App Tracking Transparency prompt is shown after first launch; the IDFA is read and shared
+  only after the player allows it.
+- **In-app purchases (iOS)** — StoreKit coin packs, bundles, a one-time Starter Pack, and a non-consumable Remove
+  Ads, with Restore Purchases in settings. No server-side receipt validation. `purchase_result` events go to
+  Firebase, AppsFlyer, and Meta.
 
-Purchase disclosures are still written conditionally for future releases.
+The Android pages do not yet cover AppsFlyer, Meta, or in-app purchases.
 
 Public support and privacy email: `velvet_rogue_5@proton.me`.
 
-Two declarations are deliberately left to a human before submission and are flagged on the marketing pages:
-whether App Store review requires an App Tracking Transparency prompt now that ad networks receive a device
-identifier, and the Google Play Data safety answers for the Advertising ID.
-
-Update the policies and store declarations before release if the app adds cloud saves, accounts, in-app purchases,
-an ATT prompt, active migration uploads, or other data collection.
+Update the policies and store declarations before release if the app adds cloud saves, accounts, subscriptions,
+active migration uploads, or other data collection.
 
 ## Local validation
 

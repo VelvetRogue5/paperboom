@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="index,follow">
-  <meta name="description" content="Privacy Policy for Paper Boom! on iOS, covering on-device game saves, in-app advertising, analytics and crash reporting, install measurement with AppsFlyer and Meta, App Tracking Transparency and the IDFA, and Apple in-app purchase disclosures.">
+  <meta name="description" content="Privacy Policy for Paper Boom! on iOS, covering on-device game saves, in-app advertising, analytics and crash reporting, install measurement with AppsFlyer and Meta, App Tracking Transparency and the IDFA, and Apple in-app purchases.">
   <meta name="theme-color" content="#123f3a">
   <title>Privacy Policy (iOS) | Paper Boom!</title>
   <link rel="icon" href="assets/app-icon.png">
@@ -302,16 +302,27 @@
       <article class="policy-section">
         <h2>App Store Purchases</h2>
         <p>
-          The current build reviewed for this policy does not include active App Store purchase processing. If a
-          future version offers optional in-app purchases, they will be processed by Apple through the App Store.
-          Apple may provide the app with the product identifier, transaction status, and purchase receipt needed to
-          validate a transaction and grant an in-game item. We do not receive your full payment card details.
+          Paper Boom! offers optional in-app purchases — coin packs, bundles, a Starter Pack, and Remove Ads — which
+          are processed by Apple through the App Store. Apple handles your payment method, Apple Account, and billing
+          details under the <a href="https://www.apple.com/legal/privacy/" rel="noopener noreferrer">Apple Privacy Policy</a>.
+          We never receive your name, Apple Account email, or payment card details.
         </p>
         <p>
-          Apple handles its purchase and account data under the
-          <a href="https://www.apple.com/legal/privacy/" rel="noopener noreferrer">Apple Privacy Policy</a>.
-          Purchase-related in-game inventory may be stored locally on your device as part of your game save, and shop
-          and purchase events are recorded in analytics as described above.
+          To complete a purchase, iOS tells the app the product identifier, whether the transaction succeeded, failed,
+          or was cancelled, and a transaction identifier. The app uses this on your device to grant the item and does
+          not send your App Store receipt to our own servers. Purchased coins, boosters, and lives are stored in your
+          local game save, and the app records on your device whether you have bought Remove Ads or the Starter Pack.
+          When you tap Restore Purchases, iOS returns your previous non-consumable purchases so Remove Ads can be
+          turned back on.
+        </p>
+        <p>
+          We record each purchase outcome as a <span>purchase_result</span> event containing the product identifier,
+          the result (such as purchased, restored, cancelled, or failed), and the transaction identifier or failure
+          reason. It does not contain the price you paid. Like other gameplay events, it is sent with the identifiers
+          described above to Firebase Analytics, to AppsFlyer, and to Meta, so that we can measure which ad campaigns
+          bring paying players. Shop opens and product taps are also recorded as analytics events. After a completed
+          purchase, your installation is marked as a purchaser on your device, which can change the offers you see
+          and turn off interstitial ads.
         </p>
       </article>
 
@@ -333,8 +344,8 @@
         <h2>How Information Is Used</h2>
         <p>
           Local game data is used only to provide game features: resume progress, maintain balances and timers,
-          remember completed tutorials, restore settings, and, if purchases are added in a future release, grant
-          purchased in-game content after a valid purchase.
+          remember completed tutorials, restore settings, grant purchased in-game content after a completed App Store
+          purchase, and restore Remove Ads when you ask.
         </p>
         <p>
           Analytics, crash, advertising, configuration, and measurement data are used to operate and improve the
@@ -355,8 +366,8 @@
           correspondence with advertisers. Data is shared only as described in this policy: with Google for
           analytics, crash reporting, and remote configuration; with AppLovin and the mediated advertising networks
           to deliver and measure ads; with AppsFlyer, Meta, and our measurement endpoint to count installs, attribute
-          them to ad campaigns, and measure revenue; with Apple to
-          process any future App Store purchase; when you choose to contact support; when required by law; or when
+          them to ad campaigns, and measure revenue, including purchase results with AppsFlyer and Meta; with Apple to
+          process App Store purchases; when you choose to contact support; when required by law; or when
           necessary to protect rights, safety, and security.
         </p>
         <p>
@@ -415,7 +426,7 @@
         <p>
           We may update this policy when Paper Boom! changes or when legal requirements change. The latest version
           will be posted on this page, and the "Last updated" date will be revised. If a future release adds cloud
-          saves, in-app purchases, or another data service, this policy will be updated
+          saves, accounts, or another data service, this policy will be updated
           before that feature is released.
         </p>
       </article>

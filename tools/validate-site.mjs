@@ -55,6 +55,8 @@ includes("privacy.html", "app-d.paperboom.com.ai");
 includes("privacy.html", "AppsFlyer");
 includes("privacy.html", "Meta (Facebook) App Events");
 includes("privacy.html", "id=\"att\"");
+includes("privacy.html", "purchase_result");
+includes("privacy.html", "Restore Purchases");
 includes("privacy.html", "android/privacy.html");
 includes("privacy.html", "terms-of-use.html");
 
@@ -65,7 +67,7 @@ includes("terms-of-use.html", "In-App Purchases");
 includes("marketing.html", "App Store Connect");
 includes("marketing.html", "Contains ads:</strong> Yes");
 includes("marketing.html", "App Privacy Label Draft");
-includes("marketing.html", "In-app purchases:</strong> No active purchase processing");
+includes("marketing.html", "In-app purchases:</strong> Yes");
 
 const iosMarketing = read("marketing.html");
 for (const [id, max] of [["subtitle", 30], ["promotional-text", 170], ["keywords", 100], ["app-store-description", 4000]]) {
@@ -155,6 +157,15 @@ const staleNoTrackingClaims = [
   "does not present the App Tracking Transparency prompt",
   "does not access the IDFA",
   "access the Identifier for Advertisers (IDFA)",
+  // In-app purchases are live on iOS.
+  "No active App Store purchase processing",
+  "No active in-app purchase processing",
+  "No active purchase processing",
+  "does not include active App Store purchase processing",
+  "no active store purchase processing",
+  "or active in-app purchases",
+  "no active IAP",
+  "Future In-App Purchases",
 ];
 for (const relativePath of ["privacy.html", "terms-of-use.html", "marketing.html"]) {
   const html = read(relativePath);
