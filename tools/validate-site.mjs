@@ -52,6 +52,9 @@ includes("privacy.html", "Apple's App Tracking Transparency");
 includes("privacy.html", "AppLovin MAX");
 includes("privacy.html", "Firebase Crashlytics");
 includes("privacy.html", "app-d.paperboom.com.ai");
+includes("privacy.html", "AppsFlyer");
+includes("privacy.html", "Meta (Facebook) App Events");
+includes("privacy.html", "id=\"att\"");
 includes("privacy.html", "android/privacy.html");
 includes("privacy.html", "terms-of-use.html");
 
@@ -144,6 +147,22 @@ for (const relativePath of pagePaths) {
     assert.ok(!html.includes(claim), `${relativePath} should not still claim ${JSON.stringify(claim)}`);
   }
 }
+
+// The iOS build requests App Tracking Transparency and reads the IDFA after the
+// player allows it. App Review flagged the site when it still said otherwise.
+const staleNoTrackingClaims = [
+  "does not present Apple's App Tracking Transparency prompt",
+  "does not present the App Tracking Transparency prompt",
+  "does not access the IDFA",
+  "access the Identifier for Advertisers (IDFA)",
+];
+for (const relativePath of ["privacy.html", "terms-of-use.html", "marketing.html"]) {
+  const html = read(relativePath);
+  for (const claim of staleNoTrackingClaims) {
+    assert.ok(!html.includes(claim), `${relativePath} should not still claim ${JSON.stringify(claim)}`);
+  }
+}
+includes("marketing.html", "<strong>Tracking:</strong> Yes.");
 
 const forbiddenBrand = ["flow", "games"].join("");
 const forbiddenEmail = ["contact", "@", forbiddenBrand, ".net"].join("");

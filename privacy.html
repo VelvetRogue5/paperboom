@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="index,follow">
-  <meta name="description" content="Privacy Policy for Paper Boom! on iOS, covering on-device game saves, in-app advertising, analytics and crash reporting, install measurement, and Apple in-app purchase disclosures.">
+  <meta name="description" content="Privacy Policy for Paper Boom! on iOS, covering on-device game saves, in-app advertising, analytics and crash reporting, install measurement with AppsFlyer and Meta, App Tracking Transparency and the IDFA, and Apple in-app purchase disclosures.">
   <meta name="theme-color" content="#123f3a">
   <title>Privacy Policy (iOS) | Paper Boom!</title>
   <link rel="icon" href="assets/app-icon.png">
@@ -35,9 +35,10 @@
           This policy explains how Paper Boom! handles information when you play. You still do not need an account,
           and your game progress is saved on your device. The app now also shows ads, reports gameplay and
           performance data to analytics and crash-reporting services, and measures installs so we can understand
-          how the game is found and how it performs.
+          how the game is found and how it performs. On first launch, iOS asks whether Paper Boom! may track you;
+          Apple's advertising identifier (IDFA) is read only if you tap Allow.
         </p>
-        <p class="updated">Last updated: August 26, 2026</p>
+        <p class="updated">Last updated: September 17, 2026</p>
         <div class="platform-switcher" aria-label="Choose a platform privacy policy">
           <span>Platform</span>
           <a href="privacy.html" aria-current="page">iOS</a>
@@ -54,7 +55,7 @@
         <img src="assets/app-icon.png" alt="Paper Boom app icon" width="136" height="136">
         <div>
           <strong>No account needed</strong>
-          <span>Play without signing up. Ads and measurement use a device identifier, not your identity.</span>
+          <span>Play without signing up. The IDFA is used only if you allow tracking in Apple's prompt.</span>
         </div>
       </aside>
     </section>
@@ -73,7 +74,7 @@
       <article>
         <span class="card-number" aria-hidden="true">03</span>
         <h2>Ads and Measurement</h2>
-        <p>The app includes advertising, analytics, crash reporting, remote configuration, and install measurement, described in detail below.</p>
+        <p>The app includes advertising, analytics, crash reporting, remote configuration, and install measurement. It asks for tracking permission through Apple's App Tracking Transparency prompt.</p>
       </article>
     </section>
 
@@ -92,12 +93,30 @@
         </p>
         <p>
           The app generates a random device identifier the first time it runs and stores it on your device, including
-          in the iOS keychain so it can survive a reinstall. It is not derived from your identity, your Apple Account,
-          or the Identifier for Advertisers (IDFA). This identifier is sent with the analytics, crash-reporting,
-          advertising, and measurement data described below so that events from the same installation can be counted
-          together. Deleting the app does not always remove the keychain copy; see
-          <a href="#choices">Your Choices</a>.
+          in the iOS keychain so it can survive a reinstall. It is not derived from your identity or your Apple
+          Account. This identifier is sent with the analytics, crash-reporting, advertising, and measurement data
+          described below so that events from the same installation can be counted together. Deleting the app does
+          not always remove the keychain copy; see <a href="#choices">Your Choices</a>.
         </p>
+        <p>
+          The app also uses identifiers provided by iOS and by its measurement partners:
+        </p>
+        <ul class="policy-list">
+          <li>
+            <strong>Identifier for Vendor (IDFV).</strong> An identifier iOS assigns to apps from the same developer on
+            your device. It does not require tracking permission and is sent with install measurement reports.
+          </li>
+          <li>
+            <strong>Identifier for Advertisers (IDFA).</strong> Apple's advertising identifier. Paper Boom! reads it
+            only if you allow tracking in the App Tracking Transparency prompt. If you do not allow tracking, the app
+            does not read or send it. See <a href="#att">App Tracking Transparency and the IDFA</a>.
+          </li>
+          <li>
+            <strong>AppsFlyer ID and Meta anonymous ID.</strong> Random identifiers created by the AppsFlyer and Meta
+            SDKs inside the app. They are used by those services and are also included in our own measurement reports
+            so the records can be matched.
+          </li>
+        </ul>
         <p>
           The app also creates a separate random support identifier and stores it on your device. If you tap the
           in-game support button, this identifier is placed in the subject of a draft email so we can distinguish
@@ -153,15 +172,18 @@
         </p>
         <p>
           Ads are delivered through AppLovin MAX, which mediates demand from several advertising networks. The
-          networks currently integrated in the app are AppLovin, Unity Ads, Vungle (Liftoff), Mintegral, Pangle
-          (ByteDance), BidMachine, and Bigo Ads. Depending on your platform and version, some of these networks may
-          not be enabled and some ad placements may not be serving yet, but the software components ship with the app.
+          networks currently integrated in the iOS app are AppLovin, Google AdMob, Unity Ads, Vungle (Liftoff),
+          DT Exchange (Digital Turbine), Mintegral, Pangle (ByteDance), BidMachine, and Bigo Ads. Some of these
+          networks may not be enabled and some ad placements may not be serving yet, but the software components ship
+          with the app.
         </p>
         <p>
           To select, deliver, and measure ads, these providers process device and usage information, which typically
-          includes the device identifier described above, IP address and the coarse location derived from it, device
-          model and operating system, network and locale information, and your interactions with the ads shown (such
-          as views, clicks, and completions). We do not send them your game saves or your support email. AppLovin
+          includes the device identifier described above, the IDFA if you have allowed tracking, IP address and the
+          coarse location derived from it, device model and operating system, network and locale information, and
+          your interactions with the ads shown (such as views, clicks, and completions). If you have not allowed
+          tracking, iOS gives the networks no IDFA, and ads are measured with Apple's privacy-preserving SKAdNetwork
+          attribution instead. We do not send them your game saves or your support email. AppLovin
           also reports estimated ad revenue for each impression back to the app, which we use for the measurement
           described in the next section.
         </p>
@@ -169,7 +191,8 @@
           Each advertising network handles the data it receives as an independent controller under its own privacy
           policy, including
           <a href="https://www.applovin.com/privacy/" rel="noopener noreferrer">AppLovin</a> and
-          <a href="https://unity.com/legal/game-player-and-app-user-privacy-policy" rel="noopener noreferrer">Unity</a>.
+          <a href="https://unity.com/legal/game-player-and-app-user-privacy-policy" rel="noopener noreferrer">Unity</a>, and
+          <a href="https://policies.google.com/technologies/ads" rel="noopener noreferrer">Google</a>.
           AppLovin publishes the current list of its mediation and demand partners on its privacy page.
         </p>
       </article>
@@ -177,16 +200,35 @@
       <article class="policy-section">
         <h2>Install Measurement and Attribution</h2>
         <p>
-          Paper Boom! reports installation and gameplay milestones to our own measurement endpoint at
-          <span>app-d.paperboom.com.ai</span>, operated for us so that we can count installs, understand which
-          marketing channel a player came from, and measure how much advertising revenue an installation generates
-          in aggregate.
+          Paper Boom! uses three measurement services so that we can count installs, understand which advertising
+          campaign or marketing channel a player came from, and measure how much advertising revenue an installation
+          generates in aggregate.
         </p>
         <p>
-          On first launch the app sends an install report containing the device identifier, app id, platform, app
-          version and build, store channel and region, device model and manufacturer, operating system version,
-          screen size, language, country, and time zone. After that, selected events — app opens, tutorial
-          completion, ad impressions, and cumulative ad revenue — are sent with the same identifiers.
+          <strong>AppsFlyer.</strong> The AppsFlyer SDK starts when the app launches. It receives the app-generated
+          device identifier, the AppsFlyer ID, the IDFV, the IDFA if you have allowed tracking, IP address, device and
+          app information, the gameplay and app events described under Analytics, and the estimated revenue of each ad
+          impression. AppsFlyer matches this against ad campaigns to attribute the install. While the tracking prompt
+          is still unanswered, AppsFlyer holds its first report for up to 60 seconds so it can respect your choice.
+          AppsFlyer processes this data as our service provider under the
+          <a href="https://www.appsflyer.com/legal/services-privacy-policy/" rel="noopener noreferrer">AppsFlyer Services Privacy Policy</a>.
+        </p>
+        <p>
+          <strong>Meta (Facebook) App Events.</strong> The Meta SDK records app activation and a limited set of
+          gameplay events so that we can measure installs from ads we run on Facebook and Instagram. It receives the
+          Meta anonymous ID, device and app information, and IP address. It collects the IDFA only after you allow
+          tracking; until then, and if you decline, IDFA collection stays turned off. The app does not use Facebook
+          Login and does not access your Facebook account. Meta handles this data under the
+          <a href="https://www.facebook.com/privacy/policy/" rel="noopener noreferrer">Meta Privacy Policy</a>.
+        </p>
+        <p>
+          <strong>Our measurement endpoint.</strong> The app also reports installation and gameplay milestones to our
+          own endpoint at <span>app-d.paperboom.com.ai</span>, operated for us. On first launch the app sends an
+          install report containing the device identifier, IDFV, IDFA (only if you have allowed tracking), AppsFlyer
+          ID, Meta anonymous ID, app id, platform, app version and build, store channel and region, device model and
+          manufacturer, operating system version, screen size, language, country, and time zone. After that, selected
+          events — app opens, tutorial completion, ad impressions, and cumulative ad revenue — are sent with the same
+          identifiers.
         </p>
         <p>
           These reports are queued on your device when the network is unavailable and retried later, so a report may
@@ -206,16 +248,27 @@
         </p>
       </article>
 
-      <article class="policy-section">
+      <article id="att" class="policy-section">
         <h2>App Tracking Transparency and the IDFA</h2>
         <p>
-          The current version of Paper Boom! does not present Apple's App Tracking Transparency prompt and does not
-          access the Identifier for Advertisers (IDFA). Advertising and measurement in this version rely on the
-          app-generated device identifier described above rather than on Apple's advertising identifier.
+          Paper Boom! uses Apple's App Tracking Transparency prompt to ask whether it may track
+          you. The prompt appears shortly after the app first opens and explains that permission "allows us to measure
+          which ads bring players to Paper Boom, so we can show you more relevant ones." You are asked only once;
+          iOS remembers your answer.
         </p>
         <p>
-          If a future version requests permission to track, iOS will show you Apple's prompt first, your answer will
-          be respected, and this policy will be updated before that version is released.
+          <strong>If you tap Allow,</strong> the app reads your Identifier for Advertisers (IDFA) and makes it
+          available to AppsFlyer, Meta, AppLovin and the advertising networks it mediates, and our measurement
+          endpoint. They use it to attribute your install to the ad campaign that led to it, to measure ad performance
+          and revenue, and to show ads that may be more relevant to you. Combining data about you from Paper Boom!
+          with data from other companies' apps, websites, or ad campaigns in this way is what Apple calls tracking.
+        </p>
+        <p>
+          <strong>If you tap Ask App Not to Track,</strong> or if tracking is restricted or turned off on your device,
+          the app does not read or send the IDFA, and Meta's IDFA collection stays off. The game works the same either
+          way. Ads are still shown, and installs are still measured in aggregate through Apple's SKAdNetwork and with
+          the app-generated device identifier and IDFV, which are not used to track you across other companies' apps
+          and websites.
         </p>
       </article>
 
@@ -227,9 +280,11 @@
             automatically between levels and cannot currently be turned off in the game.
           </li>
           <li>
-            <strong>Tracking permission.</strong> In iOS Settings you can turn off "Allow Apps to Request to Track",
-            which blocks the App Tracking Transparency prompt for all apps, and turn off Personalized Ads for Apple's
-            own advertising.
+            <strong>Tracking permission.</strong> You can change your answer at any time in iOS Settings &gt; Privacy
+            &amp; Security &gt; Tracking by turning Paper Boom! off. Once tracking is off, the app stops reading the
+            IDFA. Turning off "Allow Apps to Request to Track" on that screen declines tracking for all apps. You can
+            also turn off Personalized Ads under Privacy &amp; Security &gt; Apple Advertising for Apple's own
+            advertising.
           </li>
           <li>
             <strong>Deleting the app.</strong> Deleting Paper Boom! removes your local game saves. The device
@@ -299,14 +354,17 @@
           We do not sell or rent player personal information, and we do not share your game saves or support
           correspondence with advertisers. Data is shared only as described in this policy: with Google for
           analytics, crash reporting, and remote configuration; with AppLovin and the mediated advertising networks
-          to deliver and measure ads; with our measurement endpoint to count installs and revenue; with Apple to
+          to deliver and measure ads; with AppsFlyer, Meta, and our measurement endpoint to count installs, attribute
+          them to ad campaigns, and measure revenue; with Apple to
           process any future App Store purchase; when you choose to contact support; when required by law; or when
           necessary to protect rights, safety, and security.
         </p>
         <p>
           Some privacy laws treat sharing device identifiers with advertising networks for personalized advertising
-          as a "sale" or "share" of personal information. If you would like us to stop that sharing for your device,
-          contact us at the address below with your device identifier.
+          as a "sale" or "share" of personal information. The simplest way to stop IDFA-based sharing is to turn off
+          tracking for Paper Boom! as described in <a href="#choices">Your Choices</a>. If you would also like us to
+          stop sharing the app-generated device identifier for your device, contact us at the address below with that
+          identifier.
         </p>
       </article>
 
@@ -357,7 +415,7 @@
         <p>
           We may update this policy when Paper Boom! changes or when legal requirements change. The latest version
           will be posted on this page, and the "Last updated" date will be revised. If a future release adds cloud
-          saves, in-app purchases, App Tracking Transparency, or another data service, this policy will be updated
+          saves, in-app purchases, or another data service, this policy will be updated
           before that feature is released.
         </p>
       </article>
